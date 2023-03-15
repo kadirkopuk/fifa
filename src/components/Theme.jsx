@@ -1,0 +1,24 @@
+import { createTheme } from "@mui/material";
+import { red } from "@mui/material/colors";
+
+const theme = createTheme({
+  spacing: 10,
+  palette: {
+    mode: "light",
+
+    customRibRed: {
+      main: red[400],
+      superDark: red[800],
+      superLight: red[100],
+    },
+  },
+  typography: {
+    fontFamily: "Lato, sans-serif",
+    fontstyle: "normal",
+    body1: {
+      lineHeight: "20px",
+    },
+  },
+});
+
+export default theme;

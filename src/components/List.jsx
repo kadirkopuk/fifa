@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 function List() {
@@ -9,7 +9,7 @@ function List() {
         p: 2,
       }}
     >
-      List
+      <Typography variant="myVariant">Cards will be here</Typography>
     </Box>
   );
 }

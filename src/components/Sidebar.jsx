@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
-import React from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
 
 function Sidebar() {
   return (
@@ -7,11 +7,9 @@ function Sidebar() {
       sx={{
         p: 2,
         left: 0,
-        backgroundColor: "#00bcd4",
+        backgroundColor: "#8bc34a",
       }}
-    >
-      Sidebar
-    </Box>
+    ></Box>
   );
 }
 
