@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "clubs"
+  },
+  {
+    "id": 2,
+    "name": "leagues"
+  },
+  {
+    "id": 3,
+    "name": "nations"
+  },
+  {
+    "id": 4,
+    "name": "players"
+  },
+  {
+    "id": 5,
+    "name": "rarities"
+  }
+]

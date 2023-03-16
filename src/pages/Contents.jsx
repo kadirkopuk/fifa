@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Leagues() {
+function Contents({ name }) {
   const navigate = useNavigate();
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
@@ -12,14 +12,13 @@ function Leagues() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://futdb.app/api/leagues?page=${page}`, {
+      .get(`https://futdb.app/api/${name}?page=${page}`, {
         headers: {
           accept: "application/json",
           "X-AUTH-TOKEN": "b1953e62-28f9-4a27-ab13-0a87648c3b32",
         },
       })
       .then((res) => {
-        console.log(res.data);
         setPageLimit(res.data.pagination.pageTotal);
         setList(res.data.items);
       })
@@ -48,7 +47,7 @@ function Leagues() {
           <div
             key={item.id}
             onClick={() => {
-              navigate(`/leagues/${item.id}`);
+              navigate(`/${name}/${item.id}`);
             }}
           >
             {item.name}
@@ -71,4 +70,4 @@ function Leagues() {
   );
 }
 
-export default Leagues;
+export default Contents;

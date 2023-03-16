@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContentWrapper from "./components/ContentWrapper/ContentWrapper";
 import Home from "./pages/Home/Home";
-import Leagues from "./pages/Leagues";
-import League from "./pages/League";
+import Contents from "./pages/Contents";
+import Content from "./pages/Content";
 import NotFound from "./pages/NotFound";
+import navs from "./data/navs.json";
+import React from "react";
 
 function App() {
   return (
@@ -12,8 +14,16 @@ function App() {
         <Route element={<ContentWrapper />}>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
-          <Route path="/leagues" element={<Leagues />} />
-          <Route path="/leagues/:leagueId" element={<League />} />
+
+          {navs.map((nav) => (
+            <React.Fragment key={nav.id}>
+              <Route path={nav.name} element={<Contents name={nav.name} />} />
+              <Route
+                path={nav.name + "/:id"}
+                element={<Content name={nav.name} />}
+              />
+            </React.Fragment>
+          ))}
         </Route>
       </Routes>
     </BrowserRouter>

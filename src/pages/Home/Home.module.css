@@ -4,9 +4,11 @@
   align-items: center;
   width: 100%;
   padding: 2rem;
+  gap: 2rem;
 }
 
 .link_navigator {
+  text-transform: capitalize;
   display: flex;
   align-items: center;
   justify-content: center;

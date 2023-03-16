@@ -3,26 +3,27 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Stack } from "@mui/material";
 
-function League() {
-  const { leagueId } = useParams();
+function Content({ name }) {
+  const { id } = useParams();
+  const objectName = name.slice(0, -1);
 
   // bi tane useeffect yazacagiz id degistiginde ,
   // use effect tetiklenicek ona gore lig resmi ve lig ismi gosterilecek
   const [loading, setLoading] = useState(true);
-  const [league, setLeague] = useState([]);
+  const [data, setData] = useState([]);
   const [imageUrl, setImageUrl] = useState();
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://futdb.app/api/leagues/${leagueId}`, {
+      .get(`https://futdb.app/api/${name}/${id}`, {
         headers: {
           accept: "application/json",
           "X-AUTH-TOKEN": "b1953e62-28f9-4a27-ab13-0a87648c3b32",
         },
       })
       .then((res) => {
-        setLeague(res.data.league);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -30,7 +31,7 @@ function League() {
       .finally(() => {
         setLoading(false);
       });
-    fetch(`https://futdb.app/api/leagues/${leagueId}/image`, {
+    fetch(`https://futdb.app/api/${name}/${id}/image`, {
       headers: {
         accept: "image/png",
         "X-AUTH-TOKEN": "b1953e62-28f9-4a27-ab13-0a87648c3b32",
@@ -43,7 +44,9 @@ function League() {
       .catch((err) => {
         console.log(err);
       });
-  }, [leagueId]);
+  }, [id]);
+
+  console.log(data);
 
   return (
     <Stack
@@ -56,10 +59,20 @@ function League() {
       }}
     >
       {loading && "Loading..."}
-      {league.name}
-      <img src={imageUrl} alt={league.name} />
+      {data?.[objectName]?.name}
+      <img src={imageUrl} alt="image" />
+      {name === "players" && (
+        <Stack>
+          <p>Age: {data?.[objectName]?.age}</p>
+          <p>Height: {data?.[objectName]?.height}</p>
+          <p>Weight: {data?.[objectName]?.weight}</p>
+          <p>Position: {data?.[objectName]?.position}</p>
+          <p>Foot: {data?.[objectName]?.foot}</p>
+          <p>Rating: {data?.[objectName]?.rating}</p>
+        </Stack>
+      )}
     </Stack>
   );
 }
 
-export default League;
+export default Content;
