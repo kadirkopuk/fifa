@@ -1,21 +1,22 @@
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import List from "./components/List";
-import { Box, Container, Stack } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ContentWrapper from "./components/ContentWrapper/ContentWrapper";
+import Home from "./pages/Home/Home";
+import Leagues from "./pages/Leagues";
+import League from "./pages/League";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
-    <Stack
-      sx={{
-        minHeight: "100vh",
-      }}
-    >
-      <Navbar />
-      <Stack direction="row" flex={1}>
-        <Sidebar />
-        <List />
-      </Stack>
-    </Stack>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<ContentWrapper />}>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/leagues" element={<Leagues />} />
+          <Route path="/leagues/:leagueId" element={<League />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

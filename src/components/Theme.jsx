@@ -15,6 +15,7 @@ const theme = createTheme({
   typography: {
     fontFamily: "Lato, sans-serif",
     fontstyle: "normal",
+    fontSize: 15,
     body1: {
       lineHeight: "20px",
     },

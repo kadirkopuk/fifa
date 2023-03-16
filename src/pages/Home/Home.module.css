@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.link_navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  padding: 2rem 4rem;
+  background: linear-gradient(90deg, #000, #fff);
+  color: #fff;
+  cursor: pointer;
+}
