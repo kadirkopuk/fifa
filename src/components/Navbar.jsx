@@ -55,7 +55,7 @@ function Navbar() {
   return (
     <Box
       sx={{
-        backgroundColor: "inherit",
+        borderBottom: "2px solid #fff",
       }}
     >
       <Box sx={{ flexGrow: 1 }}>

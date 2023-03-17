@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, CircularProgress, Stack, Typography } from "@mui/material";
 
 function Content({ name }) {
   const { id } = useParams();
@@ -80,7 +80,7 @@ function Content({ name }) {
           width: "35%",
         }}
       >
-        {loading && "Loading..."}
+        {loading && <CircularProgress sx={{ mx: "auto", mt: 5 }} />}
 
         <Typography
           variant="h4"
@@ -95,7 +95,7 @@ function Content({ name }) {
           {data?.[objectName]?.name}
         </Typography>
       </Stack>
-      <img width={"250px"} src={imageUrl} alt="image" />
+      {imageUrl && <img width={"250px"} src={imageUrl} alt="image" />}
       {name === "players" && (
         <Stack
           sx={{

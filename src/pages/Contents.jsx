@@ -1,4 +1,4 @@
-import { Pagination, Stack, Typography } from "@mui/material";
+import { CircularProgress, Pagination, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -42,7 +42,7 @@ function Contents({ name }) {
           minHeight: "420px",
         }}
       >
-        {loading && <div>Loading...</div>}
+        {loading && <CircularProgress sx={{ mx: "auto", mt: 5 }} />}
         {list.map((item) => (
           <div
             key={item.id}
