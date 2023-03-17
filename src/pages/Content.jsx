@@ -85,6 +85,8 @@ function Content({ name }) {
         <Typography
           variant="h4"
           sx={{
+            backgroundColor: "primary.light",
+            borderRadius: "10px",
             fontWeight: "bold",
             mt: 2,
             textAlign: "center",
@@ -92,10 +94,8 @@ function Content({ name }) {
         >
           {data?.[objectName]?.name}
         </Typography>
-
-        <img src={imageUrl} alt="image" />
       </Stack>
-
+      <img width={"250px"} src={imageUrl} alt="image" />
       {name === "players" && (
         <Stack
           sx={{
@@ -110,7 +110,15 @@ function Content({ name }) {
           <p>Weight: {data?.[objectName]?.weight}</p>
           <p>Position: {data?.[objectName]?.position}</p>
           <p>Foot: {data?.[objectName]?.foot}</p>
-          <Box sx={{ color }}>
+          <Box
+            sx={{
+              backgroundColor: color,
+              borderRadius: "10px",
+              fontWeight: "bold",
+              mt: 2,
+              textAlign: "center",
+            }}
+          >
             <p>Rating: {data?.[objectName]?.rating}</p>
           </Box>
         </Stack>

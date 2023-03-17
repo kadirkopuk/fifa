@@ -5,6 +5,7 @@
   width: 100%;
   padding: 2rem;
   gap: 2rem;
+  background: rgb(24, 32, 38);
 }
 
 .link_navigator {
@@ -13,9 +14,13 @@
   align-items: center;
   justify-content: center;
   border: 1px solid #000;
-  border-radius: 0.5rem;
+  border-radius: 4rem;
   padding: 2rem 4rem;
-  background: linear-gradient(90deg, #000, #fff);
+  background: rgb(14, 76, 151);
   color: #fff;
   cursor: pointer;
+}
+.link_navigator:hover {
+  background: #fff;
+  color: #000;
 }

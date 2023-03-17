@@ -7,7 +7,7 @@ function Sidebar() {
       sx={{
         p: 2,
         left: 0,
-        backgroundColor: "#8bc34a",
+        backgroundColor: "#8bbe0b",
       }}
     ></Box>
   );

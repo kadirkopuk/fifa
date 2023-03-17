@@ -52,6 +52,7 @@ function Contents({ name }) {
           >
             <Typography
               variant="h6"
+              bgcolor="primary.light"
               sx={{
                 cursor: "pointer",
                 display: "flex",
