@@ -1,4 +1,4 @@
-import { Pagination, Stack } from "@mui/material";
+import { Pagination, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -50,7 +50,21 @@ function Contents({ name }) {
               navigate(`/${name}/${item.id}`);
             }}
           >
-            {item.name}
+            <Typography
+              variant="h6"
+              sx={{
+                cursor: "pointer",
+                display: "flex",
+                justifyContent: "center",
+                border: "1px solid black",
+                borderRadius: "5px",
+                p: 1,
+                mt: 1,
+                "&:hover": { backgroundColor: "primary.main" },
+              }}
+            >
+              {item.name}
+            </Typography>
           </div>
         ))}
       </Stack>

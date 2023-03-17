@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 
 function Content({ name }) {
   const { id } = useParams();
@@ -58,9 +58,27 @@ function Content({ name }) {
         },
       }}
     >
-      {loading && "Loading..."}
-      {data?.[objectName]?.name}
-      <img src={imageUrl} alt="image" />
+      <Stack
+        sx={{
+          width: "35%",
+        }}
+      >
+        {loading && "Loading..."}
+
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: "bold",
+            mt: 2,
+            textAlign: "center",
+          }}
+        >
+          {data?.[objectName]?.name}
+        </Typography>
+
+        <img src={imageUrl} alt="image" />
+      </Stack>
+
       {name === "players" && (
         <Stack>
           <p>Age: {data?.[objectName]?.age}</p>
