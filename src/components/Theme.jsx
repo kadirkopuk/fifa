@@ -5,6 +5,13 @@ const theme = createTheme({
   spacing: 10,
   palette: {
     mode: "light",
+    primary: {
+      main: "#40513B",
+      sage: "#9DC08B",
+    },
+    secondary: {
+      main: "#609966",
+    },
 
     customRibRed: {
       main: red[400],
@@ -12,7 +19,7 @@ const theme = createTheme({
       superLight: red[100],
     },
     background: {
-      default: "rgb(237, 241, 214)",
+      default: "#EDF1D6",
     },
   },
   typography: {

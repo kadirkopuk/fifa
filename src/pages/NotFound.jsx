@@ -11,6 +11,7 @@ function NotFound() {
         pt: 6,
         backgroundColor: "#f8f8f8",
         height: "100vh",
+        px: 2,
       }}
     >
       <Typography>
@@ -20,9 +21,9 @@ function NotFound() {
           }}
         />
       </Typography>
-      <Typography variant="h1">404</Typography>
+      <Typography variant="h2">404</Typography>
       <Typography variant="h2">Page Not Found</Typography>
-      <Typography variant="p1">
+      <Typography variant="h6" fontWeight="bold" mt={6}>
         The Page you are looking for doesn't exist or an other error occurred.
       </Typography>
     </Stack>

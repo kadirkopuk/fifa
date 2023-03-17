@@ -14,7 +14,6 @@ function App() {
         <Route element={<ContentWrapper />}>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
-
           {navs.map((nav) => (
             <React.Fragment key={nav.id}>
               <Route path={nav.name} element={<Contents name={nav.name} />} />

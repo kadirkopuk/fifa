@@ -99,10 +99,14 @@ function Content({ name }) {
       {name === "players" && (
         <Stack
           sx={{
+            backgroundColor: "#9DC08B",
+            borderRadius: "10px",
+            width: "35%",
             fontSize: "1.5rem",
             mt: 2,
             p: 2,
             fontStyle: "bold italic",
+            fontWeight: "bold",
           }}
         >
           <p>Age: {data?.[objectName]?.age}</p>
@@ -110,6 +114,9 @@ function Content({ name }) {
           <p>Weight: {data?.[objectName]?.weight}</p>
           <p>Position: {data?.[objectName]?.position}</p>
           <p>Foot: {data?.[objectName]?.foot}</p>
+          <p>Weak Foot: {data?.[objectName]?.weakFoot}</p>
+          <p>Skill Moves: {data?.[objectName]?.skillMoves} </p>
+
           <Box
             sx={{
               backgroundColor: color,

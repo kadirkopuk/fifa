@@ -6,33 +6,69 @@ import FlagCircleIcon from "@mui/icons-material/FlagCircle";
 import PeopleIcon from "@mui/icons-material/People";
 import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
 import { Stack } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate();
+  const list = [
+    {
+      id: 1,
+      name: "Home",
+      path: "/",
+      icon: <HomeIcon fontSize="large" />,
+    },
+    {
+      id: 2,
+      name: "Teams",
+      path: "/clubs",
+      icon: <SportsSoccerIcon fontSize="large" />,
+    },
+    {
+      id: 3,
+      name: "Leagues",
+      path: "/nations",
+      icon: <FlagCircleIcon fontSize="large" />,
+    },
+    {
+      id: 4,
+      name: "Players",
+      path: "/players",
+      icon: <PeopleIcon fontSize="large" />,
+    },
+    {
+      id: 5,
+      name: "Rarities",
+      path: "/rarities",
+      icon: <ViewCarouselIcon fontSize="large" />,
+    },
+  ];
   return (
-    <Box
+    <Stack
       sx={{
-        p: 2,
         left: 0,
-        backgroundColor: "#40513B",
+        backgroundColor: "primary.main",
         borderRight: "1px solid #fff",
       }}
     >
-      <Stack
-        sx={{
-          p: 1,
-          spacing: 2,
-          direction: "column",
-          justifyContent: "space-between",
-          color: "#fff",
-        }}
-      >
-        <HomeIcon />
-        <SportsSoccerIcon />
-        <FlagCircleIcon />
-        <PeopleIcon />
-        <ViewCarouselIcon />
-      </Stack>
-    </Box>
+      {list.map((item) => (
+        <Box
+          onClick={() => navigate(item.path)}
+          key={item.id}
+          sx={{
+            p: 1.5,
+            color: "#fff",
+            cursor: "pointer",
+            transition: "all 0.3s ease-in-out",
+            "&:hover": {
+              backgroundColor: "#F2F2F2",
+              color: "primary.main",
+            },
+          }}
+        >
+          {item.icon}
+        </Box>
+      ))}
+    </Stack>
   );
 }
 

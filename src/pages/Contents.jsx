@@ -28,7 +28,7 @@ function Contents({ name }) {
       .finally(() => {
         setLoading(false);
       });
-  }, [page]);
+  }, [page, name]);
 
   return (
     <Stack
@@ -39,7 +39,7 @@ function Contents({ name }) {
     >
       <Stack
         sx={{
-          minHeight: "420px",
+          minHeight: "1380px",
         }}
       >
         {loading && <CircularProgress sx={{ mx: "auto", mt: 5 }} />}
@@ -61,7 +61,7 @@ function Contents({ name }) {
                 borderRadius: "5px",
                 p: 1,
                 mt: 1,
-                "&:hover": { backgroundColor: "#40513B", color: "#fff" },
+                "&:hover": { backgroundColor: "primary.main", color: "#fff" },
               }}
             >
               {item.name}
@@ -78,7 +78,10 @@ function Contents({ name }) {
         <Pagination
           count={pageLimit}
           page={page}
-          onChange={(e, value) => setPage(value)}
+          onChange={(e, value) => {
+            setPage(value);
+            setList([]);
+          }}
         />
       </Stack>
     </Stack>

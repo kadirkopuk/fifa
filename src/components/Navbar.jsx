@@ -59,9 +59,13 @@ function Navbar() {
       }}
     >
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{ backgroundColor: "#40513B" }}>
-          <Toolbar>
-            <IconButton
+        <AppBar position="static" sx={{ backgroundColor: "primary.main" }}>
+          <Toolbar
+            sx={{
+              pl: "1.5rem!important",
+            }}
+          >
+            {/* <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -69,14 +73,14 @@ function Navbar() {
               sx={{ mr: 2 }}
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Typography
-              variant="h6"
+              variant="h5"
               noWrap
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              FUT
+              Soccer App
             </Typography>
             <Search>
               <SearchIconWrapper>
