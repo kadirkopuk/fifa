@@ -9,17 +9,19 @@
 
 .link_navigator {
   text-transform: capitalize;
+  height: 10rem;
+  width: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000;
-  border-radius: 4rem;
+  border: 1px solid #40513b;
+  border-radius: 1rem;
   padding: 2rem 4rem;
-  background: rgb(14, 76, 151);
+  background: rgb(157, 192, 139);
   color: #fff;
   cursor: pointer;
 }
 .link_navigator:hover {
-  background: #fff;
-  color: #000;
+  background: #40513b;
+  color: #fff;
 }

@@ -52,7 +52,7 @@ function Contents({ name }) {
           >
             <Typography
               variant="h6"
-              bgcolor="primary.light"
+              bgcolor="#9DC08B"
               sx={{
                 cursor: "pointer",
                 display: "flex",
@@ -61,7 +61,7 @@ function Contents({ name }) {
                 borderRadius: "5px",
                 p: 1,
                 mt: 1,
-                "&:hover": { backgroundColor: "primary.main" },
+                "&:hover": { backgroundColor: "#40513B", color: "#fff" },
               }}
             >
               {item.name}

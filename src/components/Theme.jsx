@@ -12,7 +12,7 @@ const theme = createTheme({
       superLight: red[100],
     },
     background: {
-      default: "rgb(24, 32, 38)",
+      default: "rgb(237, 241, 214)",
     },
   },
   typography: {

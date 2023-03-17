@@ -13,20 +13,24 @@ function Sidebar() {
       sx={{
         p: 2,
         left: 0,
-        backgroundColor: "#8bbe0b",
+        backgroundColor: "#40513B",
         borderRight: "1px solid #fff",
       }}
     >
       <Stack
         sx={{
           p: 1,
+          spacing: 2,
+          direction: "column",
+          justifyContent: "space-between",
+          color: "#fff",
         }}
       >
-        <HomeIcon sx={{ color: "white" }} />
-        <SportsSoccerIcon sx={{ color: "white" }} />
-        <FlagCircleIcon sx={{ color: "white" }} />
-        <PeopleIcon sx={{ color: "white" }} />
-        <ViewCarouselIcon sx={{ color: "white" }} />
+        <HomeIcon />
+        <SportsSoccerIcon />
+        <FlagCircleIcon />
+        <PeopleIcon />
+        <ViewCarouselIcon />
       </Stack>
     </Box>
   );

@@ -59,7 +59,7 @@ function Navbar() {
       }}
     >
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{ backgroundColor: "#8bbe0b" }}>
+        <AppBar position="static" sx={{ backgroundColor: "#40513B" }}>
           <Toolbar>
             <IconButton
               size="large"

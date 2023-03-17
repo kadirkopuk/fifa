@@ -85,7 +85,7 @@ function Content({ name }) {
         <Typography
           variant="h4"
           sx={{
-            backgroundColor: "primary.light",
+            backgroundColor: "#9DC08B",
             borderRadius: "10px",
             fontWeight: "bold",
             mt: 2,
