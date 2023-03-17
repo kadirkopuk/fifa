@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
 function Content({ name }) {
   const { id } = useParams();
@@ -12,6 +12,23 @@ function Content({ name }) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [imageUrl, setImageUrl] = useState();
+
+  //change color is the rating
+  function getColorFromRating(rating) {
+    if (rating >= 85) {
+      return "green";
+    } else if (rating >= 75) {
+      return "yellow";
+    } else if (rating >= 65) {
+      return "grey";
+    } else {
+      return "red";
+    }
+  }
+  const rating = data?.[objectName]?.rating;
+  const color = getColorFromRating(rating);
+
+  /////////////////////////////////////////////
 
   useEffect(() => {
     setLoading(true);
@@ -80,13 +97,22 @@ function Content({ name }) {
       </Stack>
 
       {name === "players" && (
-        <Stack>
+        <Stack
+          sx={{
+            fontSize: "1.5rem",
+            mt: 2,
+            p: 2,
+            fontStyle: "bold italic",
+          }}
+        >
           <p>Age: {data?.[objectName]?.age}</p>
           <p>Height: {data?.[objectName]?.height}</p>
           <p>Weight: {data?.[objectName]?.weight}</p>
           <p>Position: {data?.[objectName]?.position}</p>
           <p>Foot: {data?.[objectName]?.foot}</p>
-          <p>Rating: {data?.[objectName]?.rating}</p>
+          <Box sx={{ color }}>
+            <p>Rating: {data?.[objectName]?.rating}</p>
+          </Box>
         </Stack>
       )}
     </Stack>
