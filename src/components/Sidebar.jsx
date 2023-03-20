@@ -37,8 +37,8 @@ function Sidebar() {
     },
     {
       id: 5,
-      name: "Rarities",
-      path: "/rarities",
+      name: "Leagues",
+      path: "/leagues",
       icon: <ViewCarouselIcon fontSize="large" />,
     },
   ];
