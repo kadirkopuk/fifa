@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import navs from "../../data/navs.json";
 import { Button, colors, Container, Grid } from "@mui/material";
+import {
+  selectCount,
+  increment,
+  decrement,
+  incrementByAmount,
+} from "../../features/counterSlice";
+import { useSelector, useDispatch } from "react-redux";
+
 function Home() {
+  const [inputValue, setInputValue] = useState([]);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const count = useSelector(selectCount);
 
   return (
     <Container sx={{ py: 4 }}>
@@ -30,6 +42,35 @@ function Home() {
           </Grid>
         ))}
       </Grid>
+      {/* <Button
+        onClick={() => {
+          dispatch(decrement());
+        }}
+      >
+        -
+      </Button>
+      <p>{count}</p>
+      <Button
+        onClick={() => {
+          dispatch(increment());
+        }}
+      >
+        +
+      </Button>
+      <input
+        type="number"
+        onChange={(e) => {
+          setInputValue(Number(e.target.value));
+        }}
+        value={inputValue}
+      />
+      <Button
+        onClick={() => {
+          dispatch(incrementByAmount(inputValue));
+        }}
+      >
+        By Value
+      </Button> */}
     </Container>
   );
 }

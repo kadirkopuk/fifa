@@ -1,34 +1,15 @@
 import { CircularProgress, Pagination, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGetContentsQuery } from "../features/contents/contentsApiSlice";
 
 function Contents({ name }) {
   const navigate = useNavigate();
-  const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
-  const [pageLimit, setPageLimit] = useState(1);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`https://futdb.app/api/${name}?page=${page}`, {
-        headers: {
-          accept: "application/json",
-          "X-AUTH-TOKEN": "b1953e62-28f9-4a27-ab13-0a87648c3b32",
-        },
-      })
-      .then((res) => {
-        setPageLimit(res.data.pagination.pageTotal);
-        setList(res.data.items);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [page, name]);
+  const { data: list, isLoading: loading } = useGetContentsQuery({
+    name,
+    page,
+  });
 
   return (
     <Stack
@@ -43,7 +24,7 @@ function Contents({ name }) {
         }}
       >
         {loading && <CircularProgress sx={{ mx: "auto", mt: 5 }} />}
-        {list.map((item) => (
+        {list?.items?.map((item) => (
           <div
             key={item.id}
             onClick={() => {
@@ -76,11 +57,10 @@ function Contents({ name }) {
         }}
       >
         <Pagination
-          count={pageLimit}
+          count={list?.pagination?.pageTotal}
           page={page}
           onChange={(e, value) => {
             setPage(value);
-            setList([]);
           }}
         />
       </Stack>

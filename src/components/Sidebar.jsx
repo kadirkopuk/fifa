@@ -1,14 +1,21 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import HomeIcon from "@mui/icons-material/Home";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import FlagCircleIcon from "@mui/icons-material/FlagCircle";
 import PeopleIcon from "@mui/icons-material/People";
 import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
-import { Stack } from "@mui/material";
+import { IconButton, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { changeMode, selectMode } from "../features/userSlice";
+
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
 
 function Sidebar() {
+  const mode = useSelector(selectMode);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const list = [
     {
@@ -37,11 +44,12 @@ function Sidebar() {
     },
     {
       id: 5,
-      name: "Rarities",
-      path: "/rarities",
+      name: "Leagues",
+      path: "/leagues",
       icon: <ViewCarouselIcon fontSize="large" />,
     },
   ];
+
   return (
     <Stack
       sx={{
@@ -68,6 +76,27 @@ function Sidebar() {
           {item.icon}
         </Box>
       ))}
+
+      <IconButton
+        onClick={() => dispatch(changeMode())}
+        sx={{
+          svg: {
+            color: "white",
+            animation: "spin 0.3s linear",
+
+            "@keyframes spin": {
+              "0%": {
+                transform: "rotateY(180deg)",
+              },
+              "100%": {
+                transform: "rotateY(360deg)",
+              },
+            },
+          },
+        }}
+      >
+        {mode === "dark" ? <WbSunnyIcon /> : <Brightness4Icon />}
+      </IconButton>
     </Stack>
   );
 }

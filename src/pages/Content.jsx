@@ -10,6 +10,7 @@ function Content({ name }) {
   // bi tane useeffect yazacagiz id degistiginde ,
   // use effect tetiklenicek ona gore lig resmi ve lig ismi gosterilecek
   const [loading, setLoading] = useState(true);
+  // const [selectedLeague, setSelectedLeague] = useState(null);
   const [data, setData] = useState([]);
   const [imageUrl, setImageUrl] = useState();
 
@@ -48,6 +49,14 @@ function Content({ name }) {
       .finally(() => {
         setLoading(false);
       });
+
+    // useEffect(() => {
+    //   if (selectedLeague !== null) {
+    //     const filtered = name.filter((club) => club.leagues === selectedLeague);
+    //     setFilteredClubs(filtered);
+    //   }
+    // }, [selectedLeague]);
+
     fetch(`https://futdb.app/api/${name}/${id}/image`, {
       headers: {
         accept: "image/png",
