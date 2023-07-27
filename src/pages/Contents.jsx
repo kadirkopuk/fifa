@@ -53,7 +53,7 @@ function Contents({ name }) {
       <Stack
         alignItems="center"
         sx={{
-          mt: 2,
+          mt: 3,
         }}
       >
         <Pagination
